@@ -1,1 +1,29 @@
-/* No CSS *//*# sourceMappingURL=general.css.map */
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap");
+body {
+  font-family: "Open Sans", sans-serif;
+  background-color: #f6f4e6;
+}
+
+.logo {
+  text-decoration: none;
+  font-size: 20px;
+  color: black;
+}
+
+.container {
+  width: 1160px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.btn {
+  border: none;
+  background-color: black;
+  color: white;
+  width: 45px;
+  height: 45px;
+  border-radius: 50px;
+  font-size: 33px;
+  line-height: 1;
+}
+/*# sourceMappingURL=general.css.map */
