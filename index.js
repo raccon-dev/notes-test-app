@@ -2,6 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const db = require('./database')
 
+let PORT = process.env.PORT || 3000;
 
 const app = express();
 app.use(bodyParser.urlencoded({ extended: true }))
@@ -80,6 +81,6 @@ app.delete('/notes/:id', (req, res) => {
 });
 
 
-app.listen(5053, () => {
+app.listen(PORT, () => {
     console.log('Server started at 5053')
 });
