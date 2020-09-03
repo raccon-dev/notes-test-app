@@ -12,9 +12,6 @@ app.use(bodyParser.json())
 
 
 
-const getCurrentTime = () => {
-    return moment().format('MMMM Do YYYY, h:mm:ss a')
-}
 
 
 app.get('/notes', (req, res) => {
@@ -47,7 +44,8 @@ app.post('/notes', (req, res) => {
     try {
         const body = {
             noteBody: req.body.notesBody,
-            date: getCurrentTime(),
+            lastEdit: false,
+            date: moment().format('MMMM Do YYYY, h:mm:ss a'),
         };
         db.notes.create(body)
         res.sendStatus(200)
@@ -63,7 +61,8 @@ app.put('/notes/:id', (req, res) => {
         const body = {
             id,
             noteBody: req.body.notesBody,
-            date: `last edited ${getCurrentTime()}`
+            lastEdit: true,
+            date: moment().format('MMMM Do YYYY, h:mm:ss a')
         };
 
         db.notes.update(body);
