@@ -2,14 +2,19 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const db = require('./database')
 
+const moment = require('moment');
+
 let PORT = process.env.PORT || 3000;
 
 const app = express();
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json())
- 
 
 
+
+const getCurrentTime = () => {
+    return moment().format('MMMM Do YYYY, h:mm:ss a')
+}
 
 
 app.get('/notes', (req, res) => {
@@ -26,6 +31,10 @@ app.get('/notes/:id', (req, res) => {
     try {
         const id = req.params.id;
         const notes = db.notes.get(id);
+        if (notes === undefined) {
+            res.send([])
+        }
+        console.log(notes)
         res.send(notes)
 
     } catch (error) {
@@ -36,10 +45,9 @@ app.get('/notes/:id', (req, res) => {
 
 app.post('/notes', (req, res) => {
     try {
-        const d = new Date(Date.now());
         const body = {
-            ...req.body,
-            date: d.toString(),
+            noteBody: req.body.notesBody,
+            date: getCurrentTime(),
         };
         db.notes.create(body)
         res.sendStatus(200)
@@ -51,12 +59,11 @@ app.post('/notes', (req, res) => {
 app.put('/notes/:id', (req, res) => {
     try {
         const id = req.params.id;
-        const d = new Date(Date.now());
 
         const body = {
-            ...req.body,
             id,
-            edited: d.toString(),
+            noteBody: req.body.notesBody,
+            date: `last edited ${getCurrentTime()}`
         };
 
         db.notes.update(body);
