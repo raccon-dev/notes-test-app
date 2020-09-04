@@ -31,7 +31,6 @@ app.get('/notes/:id', (req, res) => {
         if (notes === undefined) {
             res.send([])
         }
-        console.log(notes)
         res.send(notes)
 
     } catch (error) {
@@ -49,7 +48,7 @@ app.post('/notes', (req, res) => {
             date: moment().format('MMMM Do YYYY, h:mm:ss a'),
         };
         db.notes.create(body)
-        res.sendStatus(200)
+        res.send(body)
     } catch (error) {
         res.send(error.message)
     }
@@ -68,7 +67,7 @@ app.put('/notes/:id', (req, res) => {
         };
 
         db.notes.update(body);
-        res.sendStatus(200)
+        res.send(body)
 
     } catch (error) {
         res.send(error.message)
@@ -80,8 +79,9 @@ app.put('/notes/:id', (req, res) => {
 
 app.delete('/notes/:id', (req, res) => {
     try {
+        const notes = db.notes.get(req.params.id);
         db.notes.delete(req.params.id)
-        res.sendStatus(200)
+        res.send(notes)
     } catch (error) {
         res.send(error.message)
     }
