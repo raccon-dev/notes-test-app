@@ -3,7 +3,19 @@ import './header.css';
 import { notesHandler } from '../../redux/actions/setNotes';
 import { useDispatch } from 'react-redux'
 
+import { useTranslation } from 'react-i18next';
+import i18next from 'i18next';
+
+
+
+
 const Header = () => {
+    const { t } = useTranslation();
+
+
+    function handleClick(lang) {
+        i18next.changeLanguage(lang)
+    }
 
     const dispatch = useDispatch();
 
@@ -19,7 +31,7 @@ const Header = () => {
             <div className="container">
                 <nav className="navigation">
                     <div className='localization'>
-                        <button className='loc loc-RU'>
+                        <button onClick={() => handleClick('ru')} className='loc loc-RU'>
 
                             <svg className='flag' version="1.1" id="Capa_1" x="0px" y="0px"
                                 viewBox="0 0 473.68 473.68"  >
@@ -41,7 +53,7 @@ const Header = () => {
                             </svg>
 
                         </button>
-                        <button className='loc loc-EN'>
+                        <button onClick={() => handleClick('en')} className='loc loc-EN'>
 
                             <svg className='flag' version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
                                 viewBox="0 0 512 512" >
@@ -69,7 +81,7 @@ const Header = () => {
                         </button>
 
 
-                        <button className='loc loc-UA'>
+                        <button onClick={() => handleClick('ua')} className='loc loc-UA'>
                             <svg className='flag' version="1.1" id="Capa_1" x="0px" y="0px"
                                 viewBox="0 0 473.677 473.677" >
                                 <path style={{ fill: "#3DAAE0" }} d="M324.756,236.842h148.921C473.677,106.032,367.641,0,236.835,0
@@ -85,8 +97,8 @@ const Header = () => {
                             </svg>
                         </button>
                     </div>
-                    <h1> <a href="/" className="logo">Notes - now you don't forget anything</a></h1>
-                    <p className='description'>Take notes anywhere. Find information faster. Share ideas with anyone. Meeting notes, web pages, projects, to-do lists—with Evernote as your note taking app, nothing falls through the cracks.</p>
+                    <h1> <a href="/" className="logo"> {t('title.1')}</a></h1>
+                    <p className='description'>{t('description.1')} </p>
                 </nav>
                 <button onClick={e => onAddHandler()} className="btn btn-addNotes">+</button>
             </div>
