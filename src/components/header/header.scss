@@ -17,6 +17,14 @@
         right: 2rem;
         bottom: 2rem;
         margin: 1rem 0;
+        .icon-add {
+            transition: all 0.4s ease;
+        }
+        &:hover {
+            .icon-add {
+                transform: rotate(180deg);
+            }
+        }
     }
     .navigation {
         text-align: center;
@@ -40,16 +48,16 @@
         width: 50px;
         height: 50px;
     }
-    .help-section{
+    .help-section {
         position: fixed;
         right: 2rem;
         bottom: 6rem;
-        p{
+        p {
             text-align: end;
             font-size: 19px;
         }
     }
-    .arrow-bottom{
+    .arrow-bottom {
         width: 70px;
         margin-left: 30px;
     }
