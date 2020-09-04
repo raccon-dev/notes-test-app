@@ -37,7 +37,7 @@ export const notesHandler = (id, requestMethod, notesBodyValue) => (dispatch) =>
             }
 
         })
-        .catch(error => console.log('error', error));
+        .catch(error => console.log('error', error.message));
 
 };
 

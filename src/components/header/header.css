@@ -34,4 +34,24 @@
 #header .btn-addNotes {
   margin: 1rem 0;
 }
+
+#header .navigation {
+  text-align: center;
+  width: 60%;
+}
+
+#header .description {
+  margin: 2rem 0;
+  font-size: 18px;
+}
+
+#header .flag {
+  width: 40px;
+  height: 40px;
+}
+
+#header .loc {
+  background-color: transparent;
+  border: none;
+}
 /*# sourceMappingURL=header.css.map */

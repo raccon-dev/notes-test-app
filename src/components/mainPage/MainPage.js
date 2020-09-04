@@ -6,14 +6,15 @@ import Note from './note'
 import { useSelector, useDispatch } from 'react-redux';
 import { notesHandler } from '../../redux/actions/setNotes';
 
+
 const MainPage = () => {
 
     const dispatch = useDispatch();
 
     useEffect(() => {
-      dispatch(notesHandler('', 'GET',))
+        dispatch(notesHandler('', 'GET',))
     }, []);
-  
+
     const notes = useSelector(({ notes }) => notes.notesList)
 
 

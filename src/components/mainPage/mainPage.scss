@@ -1,4 +1,3 @@
-
 #main-page {
     .notes-list {
         display: flex;
@@ -37,7 +36,6 @@
         display: block;
     }
     .notes-edit-section {
-        width: 87%;
         font-size: 18px;
         color: #413d28;
         outline: none;
@@ -50,13 +48,19 @@
         background-color: transparent;
         border: none;
     }
-    .remove-icon {
+    .remove-icon,
+    .done-icon {
         width: 35px;
         height: 35px;
     }
-    .notes-buttons-wrapper{
+    .notes-buttons-wrapper {
         display: flex;
         justify-content: space-between;
         align-items: center;
+    }
+    .btn-editNote {
+        outline: none;
+        background-color: transparent;
+        border: none;
     }
 }

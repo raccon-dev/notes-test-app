@@ -53,7 +53,6 @@
 }
 
 #main-page .notes-edit-section {
-  width: 87%;
   font-size: 18px;
   color: #413d28;
   outline: none;
@@ -68,7 +67,8 @@
   border: none;
 }
 
-#main-page .remove-icon {
+#main-page .remove-icon,
+#main-page .done-icon {
   width: 35px;
   height: 35px;
 }
@@ -83,5 +83,11 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+}
+
+#main-page .btn-editNote {
+  outline: none;
+  background-color: transparent;
+  border: none;
 }
 /*# sourceMappingURL=mainPage.css.map */
