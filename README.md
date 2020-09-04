@@ -8,7 +8,7 @@
 - nodemon
 
 #### **db**
-- notarealdb (mocked db)
+- [`notarealdb (mocked db)`](https://www.npmjs.com/package/notarealdb)
 
 #### **Other**
 - moment (format date)
