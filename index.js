@@ -45,6 +45,7 @@ app.post('/notes', (req, res) => {
         const body = {
             noteBody: req.body.notesBody,
             lastEdit: false,
+            noteColor: req.body.noteColor,
             date: moment().format('MMMM Do YYYY, h:mm:ss a'),
         };
         db.notes.create(body)
@@ -61,6 +62,7 @@ app.put('/notes/:id', (req, res) => {
         const body = {
             id,
             noteBody: req.body.notesBody,
+            noteColor: req.body.noteColor|| db.notes.get(id).noteColor,
             lastEdit: true,
             date: moment().format('MMMM Do YYYY, h:mm:ss a')
         };
