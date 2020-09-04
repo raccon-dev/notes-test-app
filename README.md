@@ -3,15 +3,15 @@
 ### Dependencies
 
 #### **Server**
-- express
-- body-parser
-- nodemon
+- [`express`](https://www.npmjs.com/package/express)
+- [`body-parser`](https://www.npmjs.com/package/body-parser) 
+- [`nodemon`](https://www.npmjs.com/package/nodemon) 
 
 #### **db**
 - [`notarealdb (mocked db)`](https://www.npmjs.com/package/notarealdb)
 
 #### **Other**
-- moment (format date)
+- [`moment (format date)`](https://www.npmjs.com/package/moment) 
 
 
 ## Instruction how to run API on Heroku
