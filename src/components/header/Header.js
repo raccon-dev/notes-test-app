@@ -1,14 +1,24 @@
 import React from 'react';
 import './header.css';
+import { addNotes } from '../../redux/actions/setNotes';
+import { useDispatch } from 'react-redux'
 
 const Header = () => {
+    const dispatch = useDispatch();
+    const onAddHandler = () => {
+        dispatch(addNotes({
+            "notesBody": 'Start type something',
+            "noteColor": "white"
+        }))
+    }
+
     return (
         <header id="header">
             <div className="container">
                 <nav className="navigation">
                     <h1> <a href="/" className="logo">Notes - now you don't forget anything</a></h1>
                 </nav>
-                <button className="btn btn-addNotes">+</button>
+                <button onClick={e => onAddHandler()} className="btn btn-addNotes">+</button>
             </div>
         </header>
     );
