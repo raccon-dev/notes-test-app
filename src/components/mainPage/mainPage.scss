@@ -12,7 +12,7 @@
         padding: 1rem;
         border-radius: 20px;
         width: 25%;
-        background-color: #fddb3a;
+        background-color: #f3f3f3;
     }
     .pencil-icon {
         pointer-events: none;
@@ -107,5 +107,9 @@
         100% {
             transform: translateX(0);
         }
+    }
+    .preloader-content {
+        border-radius: 20px;
+        padding: 0;
     }
 }

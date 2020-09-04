@@ -20,7 +20,7 @@
   padding: 1rem;
   border-radius: 20px;
   width: 25%;
-  background-color: #fddb3a;
+  background-color: #f3f3f3;
 }
 
 #main-page .pencil-icon {
@@ -183,5 +183,10 @@
     -webkit-transform: translateX(0);
             transform: translateX(0);
   }
+}
+
+#main-page .preloader-content {
+  border-radius: 20px;
+  padding: 0;
 }
 /*# sourceMappingURL=mainPage.css.map */

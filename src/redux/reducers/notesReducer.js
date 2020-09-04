@@ -48,7 +48,8 @@ const notes = (state = initState, action) => {
                     if (note.id !== action.payload.id) {
                         return action.payload;
                     }
-                })
+                }),
+                isLoaded: true
             }
 
 

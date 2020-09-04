@@ -6,6 +6,7 @@ import Note from './note'
 import { useSelector, useDispatch } from 'react-redux';
 import { notesHandler } from '../../redux/actions/setNotes';
 
+import LoaderNote from './NoteLoader'
 
 const MainPage = () => {
 
@@ -15,8 +16,11 @@ const MainPage = () => {
         dispatch(notesHandler('', 'GET',))
     }, []);
 
-    const notes = useSelector(({ notes }) => notes.notesList)
+    const notes = useSelector(({ notes }) => notes.notesList);
+    const loadingStatus = useSelector(({ notes }) => notes.isLoaded);
 
+    const loadingNotes = new Array(notes.length === 0 ? 3 : notes.length).fill(0).map((_, index) => index);
+    console.log(loadingNotes)
 
 
     return (
@@ -24,15 +28,23 @@ const MainPage = () => {
 
             <div className="container">
                 <ul className="notes-list">
-                    {notes.map(note => <Note
-                        key={note.id}
-                        id={note.id}
-                        date={note.date}
-                        noteBody={note.noteBody}
-                        lastEdit={note.lastEdit}
-                        noteColor={note.noteColor}
+                    {
 
-                    />)}
+                        loadingStatus ?
+                            (notes.map(note => <Note
+                                key={note.id}
+                                id={note.id}
+                                date={note.date}
+                                noteBody={note.noteBody}
+                                lastEdit={note.lastEdit}
+                                noteColor={note.noteColor}
+
+                            />))
+                            :
+                            loadingNotes.map(load => <LoaderNote key={load} />)
+
+
+                    }
                 </ul>
             </div>
 
