@@ -12,38 +12,10 @@
         align-items: center;
     }
 
-    .section-selectColors,
     .btn-addNotes {
         margin: 1rem 0;
     }
-    .btn-color {
-        margin: 0 0.5rem;
-        width: 25px;
-        height: 25px;
-        border-radius: 50px;
-        border: none;
-    }
 
-    .color-1 {
-        background-color: #fddb3a;
-    }
-    .color-2 {
-        background-color: #52575d;
-    }
-    .color-3 {
-        background-color: #ff4b5c;
-    }
-    .color-4 {
-        background-color: #5eaaa8;
-    }
-    .color-5 {
-        background-color: #d9adad;
-    }
-
-    .section-selectColors {
-        display: flex;
-        justify-content: center;
-    }
 }
 
 #main-page {
@@ -93,9 +65,6 @@
         resize: none;
     }
     .btn-removeNotes {
-        position: absolute;
-        right: 0.1rem;
-        top: 0.5rem;
         outline: none;
         background-color: transparent;
         border: none;
@@ -103,5 +72,10 @@
     .remove-icon {
         width: 35px;
         height: 35px;
+    }
+    .notes-buttons-wrapper{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
     }
 }

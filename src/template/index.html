@@ -27,20 +27,8 @@
         <h1> <a href="/" class="logo">Notes - now you don't forget anything</a></h1>
 
       </nav>
-
-      <div class="controllers">
-        <button class="btn btn-addNotes">+</button>
-
-        <div class="section-selectColors">
-          <button class="btn-color color-1"></button>
-          <button class="btn-color color-2"></button>
-          <button class="btn-color color-3"></button>
-          <button class="btn-color color-4"></button>
-          <button class="btn-color color-5"></button>
-        </div>
-
-      </div>
-
+      
+      <button class="btn btn-addNotes">+</button>
 
 
     </div>
@@ -53,24 +41,12 @@
       <ul class="notes-list">
 
         <li class="notes-item">
-          <button class="btn-removeNotes">
-            <svg class="remove-icon" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-               viewBox="0 0 455.111 455.111" style="enable-background:new 0 0 455.111 455.111;" xml:space="preserve">
-            <circle style="fill:#E24C4B;" cx="227.556" cy="227.556" r="227.556"/>
-            <path style="fill:#D1403F;" d="M455.111,227.556c0,125.156-102.4,227.556-227.556,227.556c-72.533,0-136.533-32.711-177.778-85.333
-              c38.4,31.289,88.178,49.778,142.222,49.778c125.156,0,227.556-102.4,227.556-227.556c0-54.044-18.489-103.822-49.778-142.222
-              C422.4,91.022,455.111,155.022,455.111,227.556z"/>
-            <path style="fill:#FFFFFF;" d="M331.378,331.378c-8.533,8.533-22.756,8.533-31.289,0l-72.533-72.533l-72.533,72.533
-              c-8.533,8.533-22.756,8.533-31.289,0c-8.533-8.533-8.533-22.756,0-31.289l72.533-72.533l-72.533-72.533
-              c-8.533-8.533-8.533-22.756,0-31.289c8.533-8.533,22.756-8.533,31.289,0l72.533,72.533l72.533-72.533
-              c8.533-8.533,22.756-8.533,31.289,0c8.533,8.533,8.533,22.756,0,31.289l-72.533,72.533l72.533,72.533
-              C339.911,308.622,339.911,322.844,331.378,331.378z"/>
-            
-            </svg>
+
+          <div class="notes-buttons-wrapper">
+            <button class="btn-removeNotes">
+              <svg class="remove-icon" height="512pt" viewBox="0 0 512 512" width="512pt" xmlns="http://www.w3.org/2000/svg"><path d="m256 0c-141.164062 0-256 114.835938-256 256s114.835938 256 256 256 256-114.835938 256-256-114.835938-256-256-256zm94.273438 320.105469c8.339843 8.34375 8.339843 21.824219 0 30.167969-4.160157 4.160156-9.621094 6.25-15.085938 6.25-5.460938 0-10.921875-2.089844-15.082031-6.25l-64.105469-64.109376-64.105469 64.109376c-4.160156 4.160156-9.621093 6.25-15.082031 6.25-5.464844 0-10.925781-2.089844-15.085938-6.25-8.339843-8.34375-8.339843-21.824219 0-30.167969l64.109376-64.105469-64.109376-64.105469c-8.339843-8.34375-8.339843-21.824219 0-30.167969 8.34375-8.339843 21.824219-8.339843 30.167969 0l64.105469 64.109376 64.105469-64.109376c8.34375-8.339843 21.824219-8.339843 30.167969 0 8.339843 8.34375 8.339843 21.824219 0 30.167969l-64.109376 64.105469zm0 0"/></svg>
             </button>
-          <textarea  readonly class="notes-body notes-edit-section" name="" id="" cols="25" rows="7">Lorem ipsum dolor si elit. Ipsam libero est boluptatibus fugiat ratione! Et   necessitatibus necessitatibusnecessitatibusrum! </textarea>
-          <div class="notes-footer">
-            <p class="date"> <span class="edited-props">last edited</span> May 21 09 2020</p>
+  
             <button class="btn btn-editNote">
               <svg class="pencil-icon" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
                 xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 469.336 469.336"
@@ -87,6 +63,14 @@
                     c8.063-8.063,22.104-8.063,30.167,0l64,64c4.031,4.031,6.25,9.385,6.25,15.083S445.784,117.72,441.784,121.72z" />
               </svg>
             </button>
+
+          </div>
+
+          <textarea readonly class="notes-body notes-edit-section" name="" id="" cols="25"
+            rows="7">Lorem ipsum dolor si elit. Ipsam libero est boluptatibus fugiat ratione! Et   necessitatibus necessitatibusnecessitatibusrum! </textarea>
+          <div class="notes-footer">
+            <p class="date"> <span class="edited-props">last edited</span> May 21 09 2020</p>
+
           </div>
         </li>
 

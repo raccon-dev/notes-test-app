@@ -31,46 +31,8 @@
           align-items: center;
 }
 
-#header .section-selectColors,
 #header .btn-addNotes {
   margin: 1rem 0;
-}
-
-#header .btn-color {
-  margin: 0 0.5rem;
-  width: 25px;
-  height: 25px;
-  border-radius: 50px;
-  border: none;
-}
-
-#header .color-1 {
-  background-color: #fddb3a;
-}
-
-#header .color-2 {
-  background-color: #52575d;
-}
-
-#header .color-3 {
-  background-color: #ff4b5c;
-}
-
-#header .color-4 {
-  background-color: #5eaaa8;
-}
-
-#header .color-5 {
-  background-color: #d9adad;
-}
-
-#header .section-selectColors {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
 }
 
 #main-page .notes-list {
@@ -138,9 +100,6 @@
 }
 
 #main-page .btn-removeNotes {
-  position: absolute;
-  right: 0.1rem;
-  top: 0.5rem;
   outline: none;
   background-color: transparent;
   border: none;
@@ -149,5 +108,17 @@
 #main-page .remove-icon {
   width: 35px;
   height: 35px;
+}
+
+#main-page .notes-buttons-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 /*# sourceMappingURL=style.css.map */
