@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 import { useDispatch } from 'react-redux'
-import { editNotes, deleteNotes } from '../../../redux/actions/setNotes';
+import { notesHandler } from '../../../redux/actions/setNotes';
 
 
 const Note = ({ id, date, noteBody, lastEdit, noteColor }) => {
@@ -19,13 +19,13 @@ const Note = ({ id, date, noteBody, lastEdit, noteColor }) => {
     const onEditHandler = () => {
         setReadOnly(!readOnly)
         if (!readOnly) {
-            dispatch(editNotes(id, {
+            dispatch(notesHandler(id, 'PUT', {
                 "notesBody": notesText
             }))
         }
     }
     const onDeleteHandler = () => {
-        dispatch(deleteNotes(id));
+        dispatch(notesHandler(id, 'DELETE'))
     }
 
     return (

@@ -1,96 +1,55 @@
-export const fetchNotes = (id = '') => (dispatch) => {
-    let url = `https://cors-anywhere.herokuapp.com/https://notesttestapplication.herokuapp.com/notes/${id}`
-    dispatch(setLoaded(false))
-    fetch(url).then(res => res.json()).then(res => {
-        dispatch(setNotes(res))
-    });
-
-};
-
-export const editNotes = (id = '', notesBodyValue) => (dispatch) => {
+export const notesHandler = (id, requestMethod, notesBodyValue) => (dispatch) => {
     dispatch(setLoaded(false))
     var myHeaders = new Headers();
-    myHeaders.append("Content-Type", "application/json");
-
     var raw = JSON.stringify(notesBodyValue);
+    myHeaders.append("Content-Type", "application/json");
 
     let url = `https://cors-anywhere.herokuapp.com/https://notesttestapplication.herokuapp.com/notes/${id}`
     let requestOptions = {
-        method: 'PUT',
+        method: requestMethod,
         headers: myHeaders,
         body: raw,
         redirect: 'follow'
     };
+    if (requestMethod === 'GET') {
+        requestOptions = {
+            method: requestMethod,
+        }
+    }
     fetch(url, requestOptions)
-        .then(response => response.text())
+        .then(response => response.json())
         .then(result => {
-            dispatch(editNote(result))
+            switch (requestMethod) {
+                case 'DELETE':
+                    dispatch(deleteNote(result))
+                    break;
+                case 'PUT':
+                    dispatch(editNote(result))
+                    break;
+                case 'POST':
+                    dispatch(addNote(result))
+                    break;
+                case 'GET':
+                    dispatch(setNotes(result))
+                    break;
+                default:
+                    break;
+            }
+
         })
         .catch(error => console.log('error', error));
 
 };
 
 
-export const addNotes = (notesBodyValue) => (dispatch) => {
-    dispatch(setLoaded(false))
-    var myHeaders = new Headers();
-    myHeaders.append("Content-Type", "application/json");
-
-    var raw = JSON.stringify(notesBodyValue);
-
-    let url = `https://cors-anywhere.herokuapp.com/https://notesttestapplication.herokuapp.com/notes/`
-    let requestOptions = {
-        method: 'POST',
-        headers: myHeaders,
-        body: raw,
-        redirect: 'follow'
-    };
-    fetch(url, requestOptions)
-        .then(response => response.text())
-        .then(result => {
-            dispatch(addNote(result))
-        })
-        .catch(error => console.log('error', error));
-
-};
-
-
-export const deleteNotes = (id) => (dispatch) => {
-    dispatch(setLoaded(false))
-    var myHeaders = new Headers();
-
-    myHeaders.append("Content-Type", "application/json");
-
-    let url = `https://cors-anywhere.herokuapp.com/https://notesttestapplication.herokuapp.com/notes/${id}`
-    let requestOptions = {
-        method: 'DELETE',
-        headers: myHeaders,
-        redirect: 'follow'
-    };
-    fetch(url, requestOptions)
-        .then(response => response.text())
-        .then(result => {
-            dispatch(deleteNote(result))
-        })
-        .catch(error => console.log('error', error));
-
-};
-
-
-
-export const deleteNote = note => ({
-    type: 'DELETE_NOTES',
-    payload: note
-})
-
-export const setNotes = notes => ({
+export const setNotes = payload => ({
     type: 'SET_NOTES',
-    payload: notes
+    payload
 });
 
-export const addNote = note => ({
+export const addNote = payload => ({
     type: 'ADD_NOTES',
-    payload: note
+    payload
 });
 
 export const editNote = payload => ({
@@ -98,6 +57,10 @@ export const editNote = payload => ({
     payload
 });
 
+export const deleteNote = payload => ({
+    type: 'DELETE_NOTES',
+    payload
+})
 
 export const setLoaded = payload => ({
     type: 'SET_LOADED',

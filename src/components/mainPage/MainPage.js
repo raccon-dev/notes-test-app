@@ -3,12 +3,20 @@ import './mainPage.css';
 
 import Note from './note'
 
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import { notesHandler } from '../../redux/actions/setNotes';
 
 const MainPage = () => {
 
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+      dispatch(notesHandler('', 'GET',))
+    }, []);
+  
     const notes = useSelector(({ notes }) => notes.notesList)
-    console.log(notes)
+
+
 
     return (
         <main id="main-page">

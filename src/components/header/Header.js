@@ -1,12 +1,14 @@
 import React from 'react';
 import './header.css';
-import { addNotes } from '../../redux/actions/setNotes';
+import { notesHandler } from '../../redux/actions/setNotes';
 import { useDispatch } from 'react-redux'
 
 const Header = () => {
+
     const dispatch = useDispatch();
+    
     const onAddHandler = () => {
-        dispatch(addNotes({
+        dispatch(notesHandler('', 'POST', {
             "notesBody": 'Start type something',
             "noteColor": "white"
         }))

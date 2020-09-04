@@ -20,14 +20,14 @@ const notes = (state = initState, action) => {
             return {
                 ...state,
                 notesList: [
-                    ...state.notesList, JSON.parse(action.payload)
+                    ...state.notesList, action.payload
 
                 ],
                 isLoaded: true
             }
 
         case 'EDIT_NOTE':
-            const noteForEdit = JSON.parse(action.payload);
+            const noteForEdit = action.payload;
             return {
 
                 ...state,
@@ -42,12 +42,11 @@ const notes = (state = initState, action) => {
             }
 
         case 'DELETE_NOTES':
-            const noteForDelete = JSON.parse(action.payload)
             return {
                 ...state,
                 notesList: state.notesList.filter(note => {
-                    if (note.id !== noteForDelete.id) {
-                        return noteForDelete;
+                    if (note.id !== action.payload.id) {
+                        return action.payload;
                     }
                 })
             }
