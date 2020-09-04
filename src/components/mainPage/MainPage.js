@@ -20,7 +20,7 @@ const MainPage = () => {
     const loadingStatus = useSelector(({ notes }) => notes.isLoaded);
 
     const loadingNotes = new Array(notes.length === 0 ? 3 : notes.length).fill(0).map((_, index) => index);
-    console.log(loadingNotes)
+
 
 
     return (

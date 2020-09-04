@@ -103,7 +103,7 @@ const Header = () => {
 
                 <div className='help-section'>
                     <p>Click Add Button <br /> to create a new note!</p>
-                    <img className='arrow-bottom' src='./assets/img/bottom-right-arrow.png' />
+                    <img className='arrow-bottom' src='./assets/img/bottom-right-arrow.png' alt='arrow-bottom-right' />
                 </div>
 
                 <button onClick={e => onAddHandler()} className=" btn-addNotes">
