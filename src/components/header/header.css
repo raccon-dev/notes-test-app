@@ -90,4 +90,10 @@
   width: 70px;
   margin-left: 30px;
 }
+
+@media (max-width: 767.98px) {
+  #header .navigation {
+    width: 90%;
+  }
+}
 /*# sourceMappingURL=header.css.map */

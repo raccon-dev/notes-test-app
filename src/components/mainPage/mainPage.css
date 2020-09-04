@@ -189,4 +189,16 @@
   border-radius: 20px;
   padding: 0;
 }
+
+@media (max-width: 991.98px) {
+  .notes-item {
+    width: unset !important;
+  }
+  .help-section {
+    display: none;
+  }
+  .help-section, .btn-addNotes {
+    position: unset !important;
+  }
+}
 /*# sourceMappingURL=mainPage.css.map */
