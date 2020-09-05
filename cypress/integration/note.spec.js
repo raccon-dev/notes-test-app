@@ -1,6 +1,6 @@
 describe('notes', () => {
     beforeEach(() => {
-        cy.visit('http://localhost:3000/');
+        cy.visit('https://notesappd.netlify.app/');
 
     });
 
