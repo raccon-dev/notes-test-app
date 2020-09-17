@@ -1,139 +1,136 @@
 #main-page {
-    .notes-list {
-        display: flex;
-        flex-wrap: wrap;
-        align-items: center;
-        justify-content: center;
+  .notes-list {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+  }
+  .notes-item {
+    box-shadow: 0 0 10px rgb(148, 136, 136);
+    position: relative;
+    margin: 1rem;
+    padding: 1rem;
+    border-radius: 20px;
+    width: 25%;
+    background-color: #f3f3f3;
+  }
+  .pencil-icon {
+    pointer-events: none;
+    fill: white;
+    width: 25px;
+  }
+  .date {
+    font-size: 15px;
+    font-style: italic;
+    color: #58616e;
+  }
+
+  .notes-footer {
+    margin-top: 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .edited-props {
+    display: block;
+  }
+  .notes-edit-section {
+    font-size: 18px;
+    color: #413d28;
+    outline: none;
+    background-color: transparent;
+    border: none;
+    resize: none;
+  }
+  .btn-removeNotes {
+    outline: none;
+    background-color: transparent;
+    border: none;
+    &:hover {
+      animation: shake 0.82s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+      transform: translate3d(0, 0, 0);
+      backface-visibility: hidden;
+      perspective: 1000px;
     }
-    .notes-item {
-        box-shadow: 0 0 10px rgb(148, 136, 136);
-        position: relative;
-        margin: 1rem;
-        padding: 1rem;
-        border-radius: 20px;
-        width: 25%;
-        background-color: #f3f3f3;
-    }
-    .pencil-icon {
-        pointer-events: none;
-        fill: white;
-        width: 25px;
-    }
-    .date {
-        font-size: 15px;
-        font-style: italic;
-        color: #58616e;
+  }
+
+  @keyframes shake {
+    10%,
+    90% {
+      transform: translate3d(-1px, 0, 0);
     }
 
-    .notes-footer {
-        margin-top: 2rem;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
+    20%,
+    80% {
+      transform: translate3d(2px, 0, 0);
     }
 
-    .edited-props {
-        display: block;
-    }
-    .notes-edit-section {
-        font-size: 18px;
-        color: #413d28;
-        outline: none;
-        background-color: transparent;
-        border: none;
-        resize: none;
-    }
-    .btn-removeNotes {
-        outline: none;
-        background-color: transparent;
-        border: none;
-        &:hover {
-            animation: shake 0.82s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
-            transform: translate3d(0, 0, 0);
-            backface-visibility: hidden;
-            perspective: 1000px;
-        }
+    30%,
+    50%,
+    70% {
+      transform: translate3d(-4px, 0, 0);
     }
 
-    @keyframes shake {
-        10%,
-        90% {
-            transform: translate3d(-1px, 0, 0);
-        }
-
-        20%,
-        80% {
-            transform: translate3d(2px, 0, 0);
-        }
-
-        30%,
-        50%,
-        70% {
-            transform: translate3d(-4px, 0, 0);
-        }
-
-        40%,
-        60% {
-            transform: translate3d(4px, 0, 0);
-        }
+    40%,
+    60% {
+      transform: translate3d(4px, 0, 0);
     }
-    .remove-icon,
-    .done-icon {
-        width: 35px;
-        height: 35px;
+  }
+  .remove-icon,
+  .done-icon {
+    width: 35px;
+    height: 35px;
+  }
+  .notes-buttons-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .btn-editNote {
+    outline: none;
+    background-color: transparent;
+    border: none;
+    &:hover {
+      animation: draw 1.82s both;
     }
-    .notes-buttons-wrapper {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
+  }
+
+  @keyframes draw {
+    0% {
+      transform: translateX(0);
     }
-    .btn-editNote {
-        outline: none;
-        background-color: transparent;
-        border: none;
-        &:hover {
-            animation: draw 1.82s both;
-        }
+    50% {
+      transform: translateX(-5px);
     }
 
-    @keyframes draw {
-        0% {
-            transform: translateX(0);
-        }
-        50% {
-            transform: translateX(-5px);
-        }
-
-        100% {
-            transform: translateX(0);
-        }
+    100% {
+      transform: translateX(0);
     }
-    .preloader-content {
-        border-radius: 20px;
-        padding: 0;
-    }
+  }
+  .preloader-content {
+    border-radius: 20px;
+    padding: 0;
+  }
 }
 
-
-@media (max-width: 575.98px) { 
-
+@media (max-width: 575.98px) {
 }
 
 // Small devices (landscape phones, less than 768px)
-@media (max-width: 767.98px) { 
-
+@media (max-width: 767.98px) {
 }
 
 // Medium devices (tablets, less than 992px)
-@media (max-width: 991.98px) { 
-    .notes-item{
-        width: unset !important;
-    }
-    .help-section{
-        display: none;
-    }
-    .help-section,  .btn-addNotes{
-        position: unset !important;
-    }
+@media (max-width: 991.98px) {
+  .notes-item {
+    width: unset !important;
+  }
+  .help-section {
+    display: none;
+  }
+  .help-section,
+  .btn-addNotes {
+    position: unset !important;
+  }
 }
-

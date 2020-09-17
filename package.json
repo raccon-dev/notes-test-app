@@ -27,9 +27,6 @@
     "eject": "react-scripts eject",
     "e2e": "cypress open"
   },
-  "eslintConfig": {
-    "extends": "react-app"
-  },
   "browserslist": {
     "production": [
       ">0.2%",

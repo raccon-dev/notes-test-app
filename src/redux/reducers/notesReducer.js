@@ -1,67 +1,56 @@
 const initState = {
-    notesList: [],
-    isLoaded: false
+  notesList: [],
+  isLoaded: false,
 };
 
-
 const notes = (state = initState, action) => {
+  switch (action.type) {
+    case "SET_NOTES":
+      return {
+        ...state,
+        notesList: action.payload,
+        isLoaded: true,
+      };
 
-    switch (action.type) {
+    case "ADD_NOTES":
+      return {
+        ...state,
+        notesList: [...state.notesList, action.payload],
+        isLoaded: true,
+      };
 
-        case 'SET_NOTES':
-            return {
-                ...state,
-                notesList: action.payload,
-                isLoaded: true
-            }
+    case "EDIT_NOTE":
+      const noteForEdit = action.payload;
+      return {
+        ...state,
+        notesList: state.notesList.map((note) => {
+          if (note.id === noteForEdit.id) {
+            return noteForEdit;
+          }
+          return note;
+        }),
+        isLoaded: true,
+      };
 
-        case 'ADD_NOTES':
+    case "DELETE_NOTES":
+      return {
+        ...state,
+        notesList: state.notesList.filter((note) => {
+          if (note.id !== action.payload.id) {
+            return action.payload;
+          }
+        }),
+        isLoaded: true,
+      };
 
-            return {
-                ...state,
-                notesList: [
-                    ...state.notesList, action.payload
+    case "SET_LOADED":
+      return {
+        ...state,
+        isLoaded: action.payload,
+      };
 
-                ],
-                isLoaded: true
-            }
-
-        case 'EDIT_NOTE':
-            const noteForEdit = action.payload;
-            return {
-
-                ...state,
-                notesList: state.notesList.map(note => {
-                    if (note.id === noteForEdit.id) {
-                        return noteForEdit;
-                    }
-
-                    return note;
-                }),
-                isLoaded: true
-            }
-
-        case 'DELETE_NOTES':
-            return {
-                ...state,
-                notesList: state.notesList.filter(note => {
-                    if (note.id !== action.payload.id) {
-                        return action.payload;
-                    }
-                }),
-                isLoaded: true
-            }
-
-
-        case 'SET_LOADED':
-            return {
-                ...state,
-                isLoaded: action.payload
-            }
-
-        default:
-            return state;
-    }
-
-}
-export default notes
+    default:
+      return state;
+  }
+};
+export default notes;

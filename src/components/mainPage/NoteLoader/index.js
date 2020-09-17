@@ -1,2 +1,2 @@
-import LoaderNote from './LoaderNote'
-export default LoaderNote
+import LoaderNote from "./LoaderNote";
+export default LoaderNote;

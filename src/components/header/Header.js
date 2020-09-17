@@ -1,117 +1,72 @@
-import React from 'react';
-import './header.css';
-import { notesHandler } from '../../redux/actions/setNotes';
-import { useDispatch } from 'react-redux'
+import React from "react";
+import "./header.css";
+import { notesHandler } from "../../redux/actions/setNotes";
+import { useDispatch } from "react-redux";
 
-import { useTranslation } from 'react-i18next';
-import i18next from 'i18next';
+import { useTranslation } from "react-i18next";
+import i18next from "i18next";
 
-
-
+import { ReactComponent as RuFlag } from "./ruFlag.svg";
+import { ReactComponent as EnFlag } from "./enFlag.svg";
+import { ReactComponent as UaFlag } from "./uaFlag.svg";
+import { ReactComponent as IconAdd } from "./iconAdd.svg";
 
 const Header = () => {
-    const { t } = useTranslation();
+  const { t } = useTranslation();
 
+  function handleClick(lang) {
+    i18next.changeLanguage(lang);
+  }
 
-    function handleClick(lang) {
-        i18next.changeLanguage(lang)
-    }
+  const dispatch = useDispatch();
 
-    const dispatch = useDispatch();
-
-    const onAddHandler = () => {
-        dispatch(notesHandler('', 'POST', {
-            "notesBody": 'Start type something',
-            "noteColor": "white"
-        }))
-    }
-
-    return (
-        <header id="header">
-            <div className="container">
-                <nav className="navigation">
-                    <div className='localization'>
-                        <button onClick={() => handleClick('ru')} className='loc loc-RU'>
-
-                            <svg className='flag' version="1.1" id="Capa_1" x="0px" y="0px"
-                                viewBox="0 0 473.68 473.68"  >
-                                <circle style={{ fill: '#FFFFFF' }} cx="236.85" cy="236.849" r="236.83" />
-                                <path style={{ fill: '#2B479D' }} d="M460.143,157.873H314.218c6.339,50.593,6.376,106.339,0.123,156.995h146.113
-	c8.53-24.438,13.219-50.682,13.219-78.026C473.677,209.139,468.879,182.573,460.143,157.873z"/>
-                                <path style={{ fill: '#EFECEC' }} d="M314.218,157.873H460.14c-0.022-0.075-0.045-0.138-0.075-0.206
-	C429.756,72.2,351.785,9.319,258.105,0.972C294.361,20.844,304.951,83.804,314.218,157.873z"/>
-                                <path style={{ fill: '#E63026' }} d="M258.113,472.697c93.848-8.362,171.927-71.46,202.12-157.156c0.079-0.228,0.146-0.453,0.228-0.673
-	H314.345C305.149,389.338,294.514,452.742,258.113,472.697z"/>
-                                <path style={{ fill: '#3757A6' }} d="M0,236.841c0,27.348,4.697,53.588,13.219,78.026h313.313c6.26-50.66,6.215-106.402-0.116-156.995
-	H13.534C4.798,182.573,0,209.139,0,236.841z"/>
-                                <path style={{ fill: '#EFEFEF' }} d="M13.608,157.668c-0.022,0.067-0.045,0.131-0.075,0.206h312.883
-	c-9.274-74.07-32.056-137.029-68.307-156.901c-7.012-0.621-14.102-0.972-21.274-0.972C133.806,0,46.191,65.801,13.608,157.668z"/>
-                                <path style={{ fill: '#E73B36' }} d="M326.532,314.867H13.219c0.079,0.221,0.153,0.445,0.228,0.673
-	C45.9,407.642,133.641,473.676,236.835,473.676c7.173,0,14.263-0.352,21.274-0.98C294.514,452.742,317.336,389.338,326.532,314.867z
-	"/>
-
-                            </svg>
-
-                        </button>
-                        <button onClick={() => handleClick('en')} className='loc loc-EN'>
-
-                            <svg className='flag' version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
-                                viewBox="0 0 512 512" >
-                                <circle style={{ fill: '#F0F0F0' }} cx="256" cy="256" r="256" />
-
-                                <path style={{ fill: '#D80027' }} d="M244.87,256H512c0-23.106-3.08-45.49-8.819-66.783H244.87V256z" />
-                                <path style={{ fill: '#D80027' }} d="M244.87,122.435h229.556c-15.671-25.572-35.708-48.175-59.07-66.783H244.87V122.435z" />
-                                <path style={{ fill: '#D80027' }} d="M256,512c60.249,0,115.626-20.824,159.356-55.652H96.644C140.374,491.176,195.751,512,256,512z" />
-                                <path style={{ fill: '#D80027' }} d="M37.574,389.565h436.852c12.581-20.529,22.338-42.969,28.755-66.783H8.819
-		C15.236,346.596,24.993,369.036,37.574,389.565z"/>
-
-                                <path style={{ fill: '#0052B4' }} d="M118.584,39.978h23.329l-21.7,15.765l8.289,25.509l-21.699-15.765L85.104,81.252l7.16-22.037
-	C73.158,75.13,56.412,93.776,42.612,114.552h7.475l-13.813,10.035c-2.152,3.59-4.216,7.237-6.194,10.938l6.596,20.301l-12.306-8.941
-	c-3.059,6.481-5.857,13.108-8.372,19.873l7.267,22.368h26.822l-21.7,15.765l8.289,25.509l-21.699-15.765l-12.998,9.444
-	C0.678,234.537,0,245.189,0,256h256c0-141.384,0-158.052,0-256C205.428,0,158.285,14.67,118.584,39.978z M128.502,230.4
-	l-21.699-15.765L85.104,230.4l8.289-25.509l-21.7-15.765h26.822l8.288-25.509l8.288,25.509h26.822l-21.7,15.765L128.502,230.4z
-	 M120.213,130.317l8.289,25.509l-21.699-15.765l-21.699,15.765l8.289-25.509l-21.7-15.765h26.822l8.288-25.509l8.288,25.509h26.822
-	L120.213,130.317z M220.328,230.4l-21.699-15.765L176.93,230.4l8.289-25.509l-21.7-15.765h26.822l8.288-25.509l8.288,25.509h26.822
-	l-21.7,15.765L220.328,230.4z M212.039,130.317l8.289,25.509l-21.699-15.765l-21.699,15.765l8.289-25.509l-21.7-15.765h26.822
-	l8.288-25.509l8.288,25.509h26.822L212.039,130.317z M212.039,55.743l8.289,25.509l-21.699-15.765L176.93,81.252l8.289-25.509
-	l-21.7-15.765h26.822l8.288-25.509l8.288,25.509h26.822L212.039,55.743z"/>
-
-                            </svg>
-
-                        </button>
-
-
-                        <button onClick={() => handleClick('ua')} className='loc loc-UA'>
-                            <svg className='flag' version="1.1" id="Capa_1" x="0px" y="0px"
-                                viewBox="0 0 473.677 473.677" >
-                                <path style={{ fill: "#3DAAE0" }} d="M324.756,236.842h148.921C473.677,106.032,367.641,0,236.835,0
-	C302.236,0,324.76,118.425,324.756,236.842z"/>
-
-
-                                <path style={{ fill: "#44C1EF" }} d="M0,236.842h334.935C334.939,118.425,302.236,0,236.835,0C106.036,0,0,106.032,0,236.842z" />
-                                <path style={{ fill: "#E8BD1F" }} d="M319.771,236.842c0,118.417-17.531,236.835-82.936,236.835
-	c130.807,0,236.842-106.036,236.842-236.835H319.771z"/>
-                                <path style={{ fill: "#FDCE0C" }} d="M334.935,236.842H0c0,130.799,106.036,236.835,236.835,236.835
-	C302.236,473.677,334.935,355.26,334.935,236.842z"/>
-
-                            </svg>
-                        </button>
-                    </div>
-                    <h1> <a href="/" className="logo"> {t('title.1')}</a></h1>
-                    <p className='description'>{t('description.1')} </p>
-                </nav>
-
-                <div className='help-section'>
-                    <p>Click Add Button <br /> to create a new note!</p>
-                    <img className='arrow-bottom' src='./assets/img/bottom-right-arrow.png' alt='arrow-bottom-right' />
-                </div>
-
-                <button onClick={e => onAddHandler()} className=" btn-addNotes">
-                    <svg className="icon-add" height="512pt" viewBox="0 0 512 512" width="512pt" xmlns="http://www.w3.org/2000/svg"><path d="m437.019531 74.980469c-48.351562-48.351563-112.636719-74.980469-181.019531-74.980469-68.378906 0-132.667969 26.628906-181.019531 74.980469-48.351563 48.351562-74.980469 112.636719-74.980469 181.019531 0 68.378906 26.628906 132.667969 74.980469 181.019531 48.351562 48.351563 112.640625 74.980469 181.019531 74.980469 68.382812 0 132.667969-26.628906 181.019531-74.980469 48.351563-48.351562 74.980469-112.640625 74.980469-181.019531 0-68.382812-26.628906-132.667969-74.980469-181.019531zm0 0" fill="#54e360" /><path d="m437.019531 74.980469c-48.351562-48.351563-112.640625-74.980469-181.019531-74.980469v512c68.378906 0 132.667969-26.628906 181.019531-74.980469 48.351563-48.351562 74.980469-112.640625 74.980469-181.019531 0-68.382812-26.628906-132.667969-74.980469-181.019531zm0 0" fill="#1fbf66" /><path d="m384.53125 208.867188h-81.398438v-81.398438c0-8.285156-6.714843-15-15-15h-64.265624c-8.285157 0-15 6.714844-15 15v81.398438h-81.402344c-8.28125 0-15 6.714843-15 15v64.265624c0 8.285157 6.71875 15 15 15h81.402344v81.398438c0 8.285156 6.714843 15 15 15h64.265624c8.285157 0 15-6.714844 15-15v-81.398438h81.398438c8.285156 0 15-6.714843 15-15v-64.265624c0-8.285157-6.714844-15-15-15zm0 0" fill="#e7f0ef" /><path d="m384.53125 208.867188h-81.398438v-81.398438c0-8.285156-6.714843-15-15-15h-32.132812v287.0625h32.132812c8.285157 0 15-6.714844 15-15v-81.398438h81.398438c8.285156 0 15-6.714843 15-15v-64.265624c0-8.285157-6.714844-15-15-15zm0 0" fill="#c5e1e6" /></svg>
-                </button>
-            </div>
-        </header >
+  const onAddHandler = () => {
+    dispatch(
+      notesHandler("", "POST", {
+        notesBody: "Start type something",
+        noteColor: "white",
+      })
     );
-}
+  };
+
+  return (
+    <header id="header">
+      <div className="container">
+        <nav className="navigation">
+          <div className="localization">
+            <button onClick={() => handleClick("ru")} className="loc loc-RU">
+              <RuFlag />
+            </button>
+            <button onClick={() => handleClick("en")} className="loc loc-EN">
+              <EnFlag />
+            </button>
+            <button onClick={() => handleClick("ua")} className="loc loc-UA">
+              <UaFlag />
+            </button>
+          </div>
+          <h1>
+            <a href="/" className="logo">
+              {t("title.1")}
+            </a>
+          </h1>
+          <p className="description">{t("description.1")} </p>
+        </nav>
+        <div className="help-section">
+          <p>
+            Click Add Button <br /> to create a new note!
+          </p>
+          <img
+            className="arrow-bottom"
+            src="./assets/img/bottom-right-arrow.png"
+            alt="arrow-bottom-right"
+          />
+        </div>
+        <button onClick={(e) => onAddHandler()} className=" btn-addNotes">
+          <IconAdd />
+        </button>
+      </div>
+    </header>
+  );
+};
 
 export default Header;
