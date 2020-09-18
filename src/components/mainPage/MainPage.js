@@ -24,8 +24,8 @@ const MainPage = () => {
     .map((_, index) => index);
 
   const onDeleteHandler = () => {
-    for (let ss of selectedNotes) {
-      dispatch(notesHandler(ss.id, "DELETE"));
+    for (let note of selectedNotes) {
+      dispatch(notesHandler(note.id, "DELETE"));
     }
   };
 
@@ -40,9 +40,7 @@ const MainPage = () => {
             <p>Remove Selected</p>
             <RemoveIcon />
           </button>
-        ) : (
-          ""
-        )}
+        ) : null}
         <ul className="notes-list">
           {loadingStatus
             ? notesList.map((note) => (

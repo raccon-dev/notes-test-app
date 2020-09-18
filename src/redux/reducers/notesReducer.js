@@ -62,10 +62,10 @@ const notes = (state = initState, action) => {
       };
 
     case "CLEAR_NOTE_SELECTION":
-      let selectedNotesCopy2 = [...state.selectedNotes];
+      let clearNotesCopy = [...state.selectedNotes];
       for (let note of state.notesList) {
         if (note.id === action.payload) {
-          selectedNotesCopy2 = selectedNotesCopy2.filter((_note) => {
+          clearNotesCopy = clearNotesCopy.filter((_note) => {
             if (_note.id !== action.payload) {
               return _note;
             }
@@ -74,7 +74,7 @@ const notes = (state = initState, action) => {
       }
       return {
         ...state,
-        selectedNotes: [...selectedNotesCopy2],
+        selectedNotes: [...clearNotesCopy],
       };
 
     case "SET_LOADED":
