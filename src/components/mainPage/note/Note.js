@@ -1,13 +1,19 @@
 import React, { useState, useEffect } from "react";
 
 import { useDispatch } from "react-redux";
-import { notesHandler } from "../../../redux/actions/setNotes";
+import {
+  notesHandler,
+  selectNote,
+  clearNoteSelection,
+} from "../../../redux/actions/setNotes";
 
 import { ReactComponent as PencilIcon } from "./pencil.svg";
 import { ReactComponent as DoneIcon } from "./done.svg";
 import { ReactComponent as RemoveIcon } from "./remove.svg";
+import { ReactComponent as SelectIcon } from "./select.svg";
+import { ReactComponent as SelectedIcon } from "./selected.svg";
 
-const Note = ({ id, date, noteBody, lastEdit, noteColor }) => {
+const Note = ({ id, date, noteBody, lastEdit, noteColor, selectedNotes }) => {
   let textAreaValue = null;
   useEffect(() => {
     textAreaValue.focus();
@@ -18,6 +24,13 @@ const Note = ({ id, date, noteBody, lastEdit, noteColor }) => {
   const [readOnly, setReadOnly] = useState(true);
   const [notesText, setNotesText] = useState("");
   const [oldNoteText, setOldNoteText] = useState("");
+
+  let selectedStatus = false;
+  for (let note of selectedNotes) {
+    if (note.id === id) {
+      selectedStatus = true;
+    }
+  }
 
   const typingHandler = (value) => {
     setNotesText(value);
@@ -39,13 +52,31 @@ const Note = ({ id, date, noteBody, lastEdit, noteColor }) => {
     dispatch(notesHandler(id, "DELETE"));
   };
 
+  const onSelectNote = () => {
+    dispatch(selectNote(id));
+  };
+
+  const onClearNoteSelection = () => {
+    dispatch(clearNoteSelection(id));
+  };
+
   return (
     <li className="notes-item" style={{ backgroundColor: noteColor }}>
       <div className="notes-buttons-wrapper">
-        <button onClick={(e) => onEditHandler()} className="btn-editNote">
+        <button onClick={(e) => onEditHandler()} className="btn-note">
           {readOnly ? <PencilIcon /> : <DoneIcon />}
         </button>
-        <button onClick={(e) => onDeleteHandler()} className="btn-removeNotes">
+        {selectedStatus ? (
+          <button onClick={(e) => onClearNoteSelection()} className="btn-note">
+            <SelectedIcon />
+          </button>
+        ) : (
+          <button onClick={(e) => onSelectNote()} className="btn-note">
+            <SelectIcon />
+          </button>
+        )}
+
+        <button onClick={(e) => onDeleteHandler()} className="btn-note">
           <RemoveIcon />
         </button>
       </div>

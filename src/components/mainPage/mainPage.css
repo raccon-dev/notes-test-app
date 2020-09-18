@@ -78,58 +78,13 @@
           perspective: 1000px;
 }
 
-@-webkit-keyframes shake {
-  10%,
-  90% {
-    -webkit-transform: translate3d(-1px, 0, 0);
-            transform: translate3d(-1px, 0, 0);
-  }
-  20%,
-  80% {
-    -webkit-transform: translate3d(2px, 0, 0);
-            transform: translate3d(2px, 0, 0);
-  }
-  30%,
-  50%,
-  70% {
-    -webkit-transform: translate3d(-4px, 0, 0);
-            transform: translate3d(-4px, 0, 0);
-  }
-  40%,
-  60% {
-    -webkit-transform: translate3d(4px, 0, 0);
-            transform: translate3d(4px, 0, 0);
-  }
-}
-
-@keyframes shake {
-  10%,
-  90% {
-    -webkit-transform: translate3d(-1px, 0, 0);
-            transform: translate3d(-1px, 0, 0);
-  }
-  20%,
-  80% {
-    -webkit-transform: translate3d(2px, 0, 0);
-            transform: translate3d(2px, 0, 0);
-  }
-  30%,
-  50%,
-  70% {
-    -webkit-transform: translate3d(-4px, 0, 0);
-            transform: translate3d(-4px, 0, 0);
-  }
-  40%,
-  60% {
-    -webkit-transform: translate3d(4px, 0, 0);
-            transform: translate3d(4px, 0, 0);
-  }
-}
-
-#main-page .remove-icon,
-#main-page .done-icon {
+#main-page .note-icon,
+#main-page .btn-note {
   width: 35px;
   height: 35px;
+  outline: none;
+  background-color: transparent;
+  border: none;
 }
 
 #main-page .notes-buttons-wrapper {
@@ -144,50 +99,24 @@
           align-items: center;
 }
 
-#main-page .btn-editNote {
-  outline: none;
-  background-color: transparent;
-  border: none;
-}
-
-#main-page .btn-editNote:hover {
-  -webkit-animation: draw 1.82s both;
-          animation: draw 1.82s both;
-}
-
-@-webkit-keyframes draw {
-  0% {
-    -webkit-transform: translateX(0);
-            transform: translateX(0);
-  }
-  50% {
-    -webkit-transform: translateX(-5px);
-            transform: translateX(-5px);
-  }
-  100% {
-    -webkit-transform: translateX(0);
-            transform: translateX(0);
-  }
-}
-
-@keyframes draw {
-  0% {
-    -webkit-transform: translateX(0);
-            transform: translateX(0);
-  }
-  50% {
-    -webkit-transform: translateX(-5px);
-            transform: translateX(-5px);
-  }
-  100% {
-    -webkit-transform: translateX(0);
-            transform: translateX(0);
-  }
-}
-
-#main-page .preloader-content {
-  border-radius: 20px;
-  padding: 0;
+.btn-remove-selected {
+  margin: 0 auto;
+  font-size: 17px;
+  width: 220px !important;
+  background-color: #fff !important;
+  padding: 30px 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  border-radius: 50px;
+  -webkit-box-shadow: 0 0 15px rgba(128, 128, 128, 0.486);
+          box-shadow: 0 0 15px rgba(128, 128, 128, 0.486);
 }
 
 @media (max-width: 991.98px) {
@@ -197,7 +126,8 @@
   .help-section {
     display: none;
   }
-  .help-section, .btn-addNotes {
+  .help-section,
+  .btn-addNotes {
     position: unset !important;
   }
 }

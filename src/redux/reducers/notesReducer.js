@@ -1,6 +1,7 @@
 const initState = {
   notesList: [],
   isLoaded: false,
+  selectedNotes: [],
 };
 
 const notes = (state = initState, action) => {
@@ -40,7 +41,40 @@ const notes = (state = initState, action) => {
             return action.payload;
           }
         }),
+        selectedNotes: state.selectedNotes.filter((note) => {
+          if (note.id !== action.payload.id) {
+            return action.payload;
+          }
+        }),
         isLoaded: true,
+      };
+
+    case "SELECT_NOTE":
+      let selectedNotesCopy = [...state.selectedNotes];
+      for (let note of state.notesList) {
+        if (note.id === action.payload) {
+          selectedNotesCopy.push(note);
+        }
+      }
+      return {
+        ...state,
+        selectedNotes: [...selectedNotesCopy],
+      };
+
+    case "CLEAR_NOTE_SELECTION":
+      let selectedNotesCopy2 = [...state.selectedNotes];
+      for (let note of state.notesList) {
+        if (note.id === action.payload) {
+          selectedNotesCopy2 = selectedNotesCopy2.filter((_note) => {
+            if (_note.id !== action.payload) {
+              return _note;
+            }
+          });
+        }
+      }
+      return {
+        ...state,
+        selectedNotes: [...selectedNotesCopy2],
       };
 
     case "SET_LOADED":

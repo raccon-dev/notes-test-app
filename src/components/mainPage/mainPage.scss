@@ -55,65 +55,32 @@
     }
   }
 
-  @keyframes shake {
-    10%,
-    90% {
-      transform: translate3d(-1px, 0, 0);
-    }
-
-    20%,
-    80% {
-      transform: translate3d(2px, 0, 0);
-    }
-
-    30%,
-    50%,
-    70% {
-      transform: translate3d(-4px, 0, 0);
-    }
-
-    40%,
-    60% {
-      transform: translate3d(4px, 0, 0);
-    }
-  }
-  .remove-icon,
-  .done-icon {
+  .note-icon,
+  .btn-note {
     width: 35px;
     height: 35px;
+    outline: none;
+    background-color: transparent;
+    border: none;
   }
   .notes-buttons-wrapper {
     display: flex;
     justify-content: space-between;
     align-items: center;
   }
-  .btn-editNote {
-    outline: none;
-    background-color: transparent;
-    border: none;
-    &:hover {
-      animation: draw 1.82s both;
-    }
-  }
-
-  @keyframes draw {
-    0% {
-      transform: translateX(0);
-    }
-    50% {
-      transform: translateX(-5px);
-    }
-
-    100% {
-      transform: translateX(0);
-    }
-  }
-  .preloader-content {
-    border-radius: 20px;
-    padding: 0;
-  }
 }
-
+.btn-remove-selected {
+  margin: 0 auto;
+  font-size: 17px;
+  width: 220px !important;
+  background-color: #fff !important;
+  padding: 30px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50px;
+  box-shadow: 0 0 15px rgba(128, 128, 128, 0.486);
+}
 @media (max-width: 575.98px) {
 }
 

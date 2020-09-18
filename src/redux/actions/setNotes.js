@@ -64,3 +64,13 @@ export const setLoaded = (payload) => ({
   type: "SET_LOADED",
   payload,
 });
+
+export const selectNote = (payload) => ({
+  type: "SELECT_NOTE",
+  payload,
+});
+
+export const clearNoteSelection = (payload) => ({
+  type: "CLEAR_NOTE_SELECTION",
+  payload,
+});

@@ -1,4 +1,4 @@
-<svg className="pencil" style="backgroundColor: 'transparent'" height="35" viewBox="0 0 512 512" width="35" xmlns="http://www.w3.org/2000/svg" data-name="Layer 1">
+<svg className="note-icon" style="backgroundColor: 'transparent'" height="35" viewBox="0 0 512 512" width="35" xmlns="http://www.w3.org/2000/svg" data-name="Layer 1">
 	<g id="_Path_" data-name=" Path ">
 		<path d="m74.44 373.02-14.79 50.27 27.71 27.71 1.35 1.35 50.27-14.79z" fill="#e1b7a3" />
 		<path d="m88.71 452.35-41.18 12.12 12.12-41.18 27.71 27.71z" fill="#b0b5ca" />
